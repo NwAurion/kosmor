@@ -1,0 +1,141 @@
+
+v0.0 to v0.9 (before 06.06.2011)
+
+	- Implementing of all basics features etc.
+
+
+v1.0 06.06.2011)
+
+	- First version released to others (limited release to Charon)
+
+Known bugs:
+
+	- Most likely introduced a date bug (it was lagging behind one month) with this version
+
+v1.1 (13.06.2011)
+
+New Features:
+
+	- HTML now shows wether its a planet or warplanet
+	- The color "ffabab" is actually colored
+	- Owner of a planet/warplanet is determined through color and shown in the .html
+	- Cleaned up source, commented, documented
+
+Known bugs:
+
+	from v1.0:
+
+	- Most likely introduced a date bug (it was lagging behind one month) with this version
+
+
+	new with this version:
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or whos
+ 	 first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.
+
+v1.2 (14.06.2011)
+
+New Features:
+
+	- Introducing start up parameters to decide on what the html will contain
+  	  Parameters are:
+	  	-warplanets (to write warplanets)
+		-planets (to write planets with owners)
+		-neutral (to write neutral planets)
+          Without any paramets, nothing will be written to the html
+	
+ 	  Usage: 
+	  java -jar KosmorMapTool.jar -warplanets -planets
+
+
+Known bugs:
+
+	from v1.0:
+
+	- Most likely introduced a date bug (it was lagging behind one month) with this version
+
+	from v1.1:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or whos
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.
+
+
+
+v1.3 (18.06.2011)
+
+New Features:
+
+	- Implemented new startup parameter, -date
+	  Setting -date always to input a date of your own, format "dd.mm.yyyy" (18.06.2011)
+	  Instead of todays date, this date will be used for everything.
+	  Changing the system date is no longer required this way
+
+	- Renamed the directory for the .svg files from map to svg
+	- Introduced checks to find out wether the html and svg directories do exists and if they are directories, if not, they are created
+
+Fixed Bugs:
+
+	- Fixed the date bug from v1.0 (it was lagging behind one month)
+
+Known bugs:
+
+	from v1.1:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.
+
+v1.31 (21.06.2011)
+
+New Features:
+	
+	 - The real date aswell as the kosmor date are now written on the top of the html, too.
+
+
+Known bugs:
+
+	from v1.1:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.
+	
+
+v1.4 (24.06.2011)
+
+New Features:
+	
+	 - If the map is not found in the local directory, now downloads it from Kosmor.
+	   As it does need the login data to do so, it is now possible to use "-login abdce" and "-password xyz" as start up parameter.
+	   If these are not given, it will ask for the login data later before downloading.
+	   
+	 - It now writes "ships" when there are ships on a planet/warplanet. If not, nothing has changed. 
+
+Other stuff: 
+
+	 - Cleaned up some code, no longer calling each and every method with the whole "String[] args", but extracting the parameters
+	   right after start up, and calling the methods with whatever they need. Also documented and commented the new HTTPClient and some
+	   other methods
+
+Known bugs:
+
+	from v1.1:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.	
+
+v1.41 (07.07.2011)
+
+Fixed bugs:
+
+	Fixed a bug where it would not correctly login to Kosmor despite starting it with the -login and -password parameter.
+
+Known bugs:
+
+	from v1.1:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.	

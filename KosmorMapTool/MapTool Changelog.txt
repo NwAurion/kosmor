@@ -1,0 +1,546 @@
+v2.00 (31.08.2012)
+
+New/changed feature:
+
+	- The map tool will now create an .xml file with the planets of each run. These xml filesa re for the newly created Planet Tool (seperate program).
+	- Disabled writing neutral planets to the .html for now, until i add an additional option to seperate writing to html and to the .xml
+	- Rearranged some code, has no impact on the tool itself
+
+
+v1.96 (28.02.2012)
+
+New/changed feature:
+
+	- The map tool will now store all created csv files in a csv subfolder, just like the maps and the html files, instead of overwritting the daily one.
+	  It will no longer keep a special "today.csv", however.
+
+v1.95 (03.02.2012)
+
+Fixed bugs:
+
+	- Fixed a bug with with the kosmor leap year recognition. Not sure if it is really fixed, but it's working for now.
+
+v1.94 (23.12.2011)
+
+Fixed bugs:
+
+	- Fixed a bug that lead to .svg files having "null" instead of the actual Kosmor Date in the file name.
+
+v1.93 (11.12.2011)
+
+Fixed bugs:
+
+	- Fixed a bug introduced in 1.92 that lead to the map tool treating warplanets as normal planets.
+
+v1.92 (10.12.2011)
+
+New Features:
+
+	- It's now possible to generate a .csv file with the planets/warplanets
+	  As always, there is a simple entry in the settings available, csv=true/false
+	  The .csv file is called "today.csv" and will be loocated in the local directory, 
+	  like everything else.
+
+v1.91 (28.09.2011)
+
+New Features:
+
+	- The map tool now features two new columns. The second to last is used to select a warplanet or planet, 
+	  the last one will then display the distance of every warplanet/planet from the selected planet.
+	  
+	  Note: Without fetchInfo, all coordinates will rounded to the nearest integer due to the svg only using integer values
+	  		With fetchInfo, all coordinates use exactly one decimal place, reflecting the actual usage in Kosmor
+	  		
+	  		Exception: The links back to Kosmor use the same precision as "set waypoint". Only warplanets actually have decimal places though.
+	  
+	  Note: There can be rounding errors due to the way computers and JavaScript in particular handle (floating point) numbers. 
+	  
+	  Examples and explanations for the interested:
+	  		
+	  		 http://www.mredkj.com/javascript/nfbasic2.html 
+	  		 http://stackoverflow.com/questions/588004/is-javascripts-math-broken
+	  		 http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems
+	
+v1.90 (10.09.2011)
+
+New Features:
+
+	- The map tool will now write down the distance a WP traveled this turn.
+	
+	- Using the new radio buttons in front of each row, it is now possible to display the distance between
+	  up to 3 different objects. Many thanks to alphabravo for this one.
+	  
+Fixed issues:
+
+	 - The sorting should now better reflect the natural order of the elements. Previously, 802 was smaller then 85 and similar.  
+	  
+Known issues:
+
+	- Sometimes, the map tool will link to another entry in Mephas Online Kosmor Tools as one would expect.
+	  In cases like Asgard, this is a problem within the Online Kosmor Tools, as it does actually feature two entries for this house,
+	  both being the same, but one containing only a limited time period, which actually is missing from the main entry.
+	  
+	  It's most likely not possible to fix it on this side, at least not in a sensible way. Currently, there are no other known
+	  issues with this feature. If you find something, you know where to find me.
+
+	
+v1.87 (04.09.2011)
+
+Fixed bugs:
+	
+	- The map tool will no longer crash if it can't connect to Mephas Online Kosmor Tools. Instead, it will simply not write the links.
+
+
+v1.86 (01.09.2011)
+
+New Features:
+
+	- The columns with player and house name will now link to the according profile at Mephas Online Kosmor Tools ( http://kosmor.ath.cx )
+	  As it is possible that a house is not listed in there when no player ever did something that got reported in the house with this house name,
+	  like someone never did conquer anything while independent, only while in another house, (see Ty for example), not every house will feature
+	  a link.
+	  
+	  This feature is only used if you use fetchInfo, as otherwise there is no house or player info available.
+
+
+v1.85 (30.08.2011)
+
+Fixed bugs: 
+	- Fixed a bug that made the tool list planets (with owners) as neutral when they are close to a neutral planet.
+	  This bug was (most likely) introduced with Version 1.83
+	
+Known issues:
+
+	- See 1.83. No new issues known.	
+	
+	
+v1.84 (28.08.2011)
+
+New Features:
+
+	- Enabled alternating coloring of the rows to ease the handling of the table
+	
+	- The tool will now show the changelog before you have to decide whether you want to download the new version if you set it to "ask".
+	
+Known issues:
+
+	- See 1.83. No new issues known.
+
+
+v1.83 (18.08.2011)
+
+New Features:
+
+	- If fetchinfo is set, the map tool will now also calculate the combat power of any fleet it does find and write it to the html, instead of only
+	  displaying whether a planet/warplanet does have ships or not. The later is still used when fetchinfo is not set.
+	  
+	- You can now set "checkforupdate" to off, ask, info, download or all.
+		- off does mean that the tool will not bother you with anything. You will have to check yourself if there is a new version etc.
+		- ask does mean, that the map tool will ask you if you want to view the changelog and if you want to download the new version each time
+		- info does mean it will open the changelog, but not download the tool. It will proceed to run with the "old" version.
+		- download: It will download the new version and exit. It will not show the changelog, and you will have to run it again yourself
+		- all: It will both open the changelog, and download the new version. It will exit itself, and you will have to run it yourself again, too.
+		
+		The configuration tool is not yet updated. Will follow some time.
+	  
+Known issues:
+
+	from v1.80:
+
+	- The option to get the house name from Kosmor will always reflect the current status in Kosmor. House affiliation may have changed
+	  or you might not even see some planets anymore. House names *will* be overwritten, either with the current owner or left blank.
+	  
+	- If the option to update old files is set, but no compatible files are found in the current directory, the map tool will
+	  just show a blank screen and exit after 10 seconds instead of notifying the user of the problem.
+	  
+	- If you run the map tool before the daily turn happened, it will set both date and turn correct, but it will create a new file
+	  even if there is already one for this turn, as the day is now 08.08. instead of 07.08. It should notice if a file for this turn
+	  and either abort, delete the old file or ask the user what to do.
+
+
+v1.82 (12.08.2011)
+
+New Features:
+
+	- The map tool can now update itself. Simply set "checkforupdates" in the settings or as startup parameter and it will check
+	  if there is a new version and, if available, download it. The map tool does exit automatically, but it does not restart itself.
+	  Note that the configuration tool will NOT update itself.
+	  
+Known issues:
+
+	from v1.80:
+
+	- The option to get the house name from Kosmor will always reflect the current status in Kosmor. House affiliation may have changed
+	  or you might not even see some planets anymore. House names *will* be overwritten, either with the current owner or left blank.
+	  
+	- If the option to update old files is set, but no compatible files are found in the current directory, the map tool will
+	  just show a blank screen and exit after 10 seconds instead of notifying the user of the problem.
+	  
+	- If you run the map tool before the daily turn happened, it will set both date and turn correct, but it will create a new file
+	  even if there is already one for this turn, as the day is now 08.08. instead of 07.08. It should notice if a file for this turn
+	  and either abort, delete the old file or ask the user what to do.
+
+
+v1.81 (11.08.2011)
+
+New Features:
+
+	- The .html files now allow filtering and offer autocomplete for the first column.
+	
+	- Renamed fetchhouse to fetchinfo, as it is now looking for the player name, too. Updated the configuration tool accordingly
+
+	- The html files now do import the needed file(s) for the sorting and filtering. Place them in the same directory as the map tool itself.
+
+Known issues:
+
+	from v1.80:
+
+	- The option to get the house name from Kosmor will always reflect the current status in Kosmor. House affiliation may have changed
+	  or you might not even see some planets anymore. House names *will* be overwritten, either with the current owner or left blank.
+	  
+	- If the option to update old files is set, but no compatible files are found in the current directory, the map tool will
+	  just show a blank screen and exit after 10 seconds instead of notifying the user of the problem.
+	  
+	- If you run the map tool before the daily turn happened, it will set both date and turn correct, but it will create a new file
+	  even if there is already one for this turn, as the day is now 08.08. instead of 07.08. It should notice if a file for this turn
+	  and either abort, delete the old file or ask the user what to do.
+
+	
+v1.80 (08.08.2011)
+
+New Features:
+
+	- It is now possible to update any amount of old .html files. Copy the old maps in the local directory as you would do with a new map, 
+	  set the update option to true and start it. It will now work on the files on at the time, but automatically start with the next one.
+	 
+	  Note: Can take quite long to finish if updating several files and using the option to fetch the house names. If the map tool is closed
+	  while still working, you might end up with a half finished .html. Maps already finished with or not yet started are not affected in any way.
+	  
+	- Changed the output to the .html files to make them less clustered.
+	
+	- The .html files are now sortable. Javascript has to be enabled.
+	
+ 	- If the map tool does not find Lymgat, it will ask to input a planet to use instead to calculate the coordinates. This is needed because the coordinates
+ 	  in the .svg are not the same as the Kosmor ones and do change based on your map
+
+Fixed bugs:
+
+	- from v1.20
+	
+ 	  The map tool no longer writes a planet "Maelstroem" with the coordinates 9/-16 at the end of the planet list.
+
+Changed behaviour:
+
+	- As the old method of using colors was not reliable enough, the map tool will now drop the house name completely from the .html if 
+	  the option to get it from Kosmor is not used. 
+	
+Known issues:
+
+	- The option to get the house name from Kosmor will always reflect the current status in Kosmor. House affiliation may have changed
+	  or you might not even see some planets anymore. House names *will* be overwritten, either with the current owner or left blank.
+	  
+	- If the option to update old files is set, but no compatible files are found in the current directory, the map tool will
+	  just show a blank screen and exit after 10 seconds instead of notifying the user of the problem.
+	  
+	- If you run the map tool before the daily turn happened, it will set both date and turn correct, but it will create a new file
+	  even if there is already one for this turn, as the day is now 08.08. instead of 07.08. It should notice if a file for this turn
+	  and either abort, delete the old file or ask the user what to do.
+
+v1.71 (31.07.2011)
+
+Fixed issues:
+	
+	- The configuration tool now does reflect the latest changes (GUI, update). It also finally includes an option to set a custom date.
+	  The map tool will now make use of it if set, whether you start it with GUI or not, or if you used the settings or the startup parameters.
+	  Remember to not only input the date, but also the hour, e.g "30.10.2010 10". The hour is important to determine if the daily turn already happened.
+	
+	- Cleaned up and restructured some code.
+	
+	- Decided to no longer list the color issue/bug. It is not possible to fix it using colors, so it would just clutter up the changelog
+	
+Possible future features:
+
+	- Updating all old html files, instead of only one
+	
+	- Redesign of the output to make it less clustered.
+	
+	- Use of a checkbox for the custom date dialog instead of inputting the hour.	 
+
+1.70 (30.07.2011)
+
+New Features:
+
+	- It's now possible to decide if you want to use the console version or the GUI version. Both use the settings.ini first if supplied, if not
+	  they check for startup parameters. 
+	 
+	- To support this, there is a new startup parameter "-gui". You can also set it in the .ini, so "gui=true" or "gui=false". You can switch at any time.
+	
+	- Introducing an update parameter, "-update" for the non-GUI, "update=true" (or false) for the GUI. 
+	  Using this the map tool checks the local directory  for maps named in the format "179_3507(31.07.2011) - Planet & WP List - kosmor.com - .svg", 
+	  which is how they are named by the tool itself. If it does find one, it will use this instead of the draw_map_svg, and use the date mentioned
+	  in the file name as date for everything. This is part of an effort to make it easier to update the .html files generated by previous versions.
+	  
+	- It will now show the version either in the title bar (if using the GUI) or print a message which version you are using. 
+      It will also write the version into the .html file
+      
+    - Removed the "-" from the settings. It's now "warplanets=true" or "fetchhouse=false" instead of "-warplanets=true". Originally introduced to allow for
+      backwards compatibility with the startup parameters, it turned out to be totally seperated anyways. Startup parameters still use the "-". 
+      
+    - Renamed "fetchHouses" to "fetchhouse" for consistency 
+      
+Known bugs
+
+	from v1.1/1.60:
+	
+	- When using colors instead of fetching the house names from Kosmor, the owner of a planet with a specific color is always 
+	  the last warplanet found with the same color, or who's first or second darker color is the same color as the planet
+	  
+Known issues:
+
+	from 1.70:
+	
+	- The configuration tool does not yet reflect the changes regarding GUI or updating old files. You can still set it in the settings yourself. 
+	  All other changes should be included
+
+	from 1.50/1.60:
+	
+	- There is not yet an option to use a custom date instead of the current date when using the GUI. It is still possible to do so with the old method, but
+	  the map tool will only check the startup parameters when no settings.ini is found. 
+
+	from 1.1/1.60	  
+	
+	- Different houses can have the same color, now way to differentiate. Not an issue when fetching house names directly
+	  from Kosmor, but when using the old (and faster, though it ends up wrong for most planets) method	of determining it by colors		
+	
+v1.60 (28.07.2011)
+
+New Features:
+
+    - Replaced most output to the console with status messages written to the new GUI, which includes a timestamp for each message.
+     
+    - Introducing the option to fetch housenames directly from Kosmor, which is 100% accurate and possible for all visible planets. The downside is, that it does take
+      quite long for a huge amount of planets. 1 second for 5-10 planets, ~8 minutes for 4000 planets. The tool will show you which planet it is currently fetching out of
+      how many as well as a percentage.
+      
+     - Updated the configuration tool accordingly.
+      
+Known bugs
+
+	from v1.1/1.60:
+	
+	- When using colors instead of fetching the house names from Kosmor, the owner of a planet with a specific color is always 
+	  the last warplanet found with the same color, or who's first or second darker color is the same color as the planet
+	  
+Known issues:
+
+	from 1.50/1.60:
+	
+	- There is not yet an option to use a custom date instead of the current date when using the GUI. It is still possible to do so with the old method, but
+	  the map tool will only check the startup parameters when no settings.ini is found. 
+
+	from 1.1/1.60	  
+	
+	- Different houses can have the same color, now way to differentiate. Not an issue when fetching house names directly
+	  from Kosmor, but when using the old (and faster, though it ends up wrong for most planets) method	of determing it by color	
+	
+v1.51 (27.07.2011)
+
+New Features:
+
+    - The map tool will now ask for username and password via a message dialog, not via the console, so you can start it directly 
+     (not using console/bat) without having to permanently save username and password in the settings
+     
+    - It will now check if it could connect with the given username and password. If not, it will show an error dialog and exit.
+      
+Known bugs
+
+	from v1.1:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.		
+	
+v1.50 (26.07.2011)
+
+New Features:
+
+    - Introducing the Kosmor Map Tool Configuration Tool, it's now possible to use a settings file ("settings.ini") to configure what will be written 
+      to the .html file as well as to determine the login data. It is still possible to use the previous method of attaching the info as startup parameters.
+      
+      
+Known bugs
+
+	from v1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.		
+	
+v1.43 (20.07.2011)
+
+New Features:
+
+    - It now converts all times to GMT/UTC before processing, to avoid problems with people using it in different timezones etc., 
+      especially regarding the fixed bug below and similar.
+      
+
+Fixed bugs:
+	
+	- (Hopefully) fixed a bug where if you would run the tool before the turn happend, it would actually think it's a turn earlier.
+	  Example: It's 7:00. Current turn: 168. Next turn: 169. If you run it, it would write 167, instead of 168.
+	  If you ran it after the turn happend, like at 15:00, everything was alright, but not between 0:00 and the next turn.
+
+Known bugs:
+
+
+	from v1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.	
+	
+v1.42 (20.07.2011)
+
+Fixed bugs:
+	
+	- Fixed a bug where it would not correctly create the folders on Linux systems
+	- Fixed a bug where the URL linking to the planets was not correct
+
+Known bugs:
+	
+	from v1.00
+	
+	- If you ran the tool between 0:00 and 10:00, where it would simulate the next turn,
+	  it would not increase the turn counter accurately, and therefore actually use the wrong turn.	
+
+	from v1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.		
+	
+v1.41 (07.07.2011)
+
+Fixed bugs:
+
+	- Fixed a bug where it would not correctly login to Kosmor despite starting it with the -login and -password parameter
+
+Known bugs:
+
+	from v1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.	
+	
+v1.40 (24.06.2011)
+
+New Features:
+	
+	 - If the map is not found in the local directory, now downloads it from Kosmor.
+	   As it does need the login data to do so, it is now possible to use "-login abdce" and "-password xyz" as start up parameter.
+	   If these are not given, it will ask for the login data later before downloading.
+	   
+	 - It now writes "ships" when there are ships on a planet/warplanet. If not, nothing has changed. 
+
+Other stuff: 
+
+	 - Cleaned up some code, no longer calling each and every method with the whole "String[] args", but extracting the parameters
+	   right after start up, and calling the methods with whatever they need. Also documented and commented the new HTTPClient and some
+	   other methods
+
+Known bugs:
+
+	from v1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.		
+	
+v1.31 (21.06.2011)
+
+New Features:
+	
+	 - The real date as well as the kosmor date are now written on the top of the html, too.
+
+Known bugs:
+
+	from v1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.
+	
+v1.30 (18.06.2011)
+
+New Features:
+
+	- Implemented new startup parameter, -date
+	  Setting -date always to input a date of your own, format "dd.mm.yyyy" (18.06.2011)
+	  Instead of todays date, this date will be used for everything.
+	  Changing the system date is no longer required this way
+
+	- Renamed the directory for the .svg files from map to svg
+	- Introduced checks to find out wether the html and svg directories do exists and if they are directories, if not, they are created
+
+Fixed Bugs:
+
+	from v1.00
+
+	- Fixed a bug where the date would be laggin behind a month
+
+Known bugs:
+
+	from v1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or who's
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.
+
+v1.20 (14.06.2011)
+
+New Features:
+
+	- Introducing start up parameters to decide on what the html will contain
+  	  Parameters are:
+	  	-warplanets (to write warplanets)
+		-planets (to write planets with owners)
+		-neutral (to write neutral planets)
+          Without any parameters, nothing will be written to the html
+	
+ 	  Usage: 
+	  java -jar KosmorMapTool.jar -warplanets -planets
+
+Known bugs:
+
+	from v1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or whos
+  	  first or second darker color is the same color as the planet
+	- Different houses can have the same color, now way to differentiate.
+
+v1.10 (13.06.2011)
+
+New Features:
+
+	- HTML now shows wether its a planet or warplanet
+	- The color "ffabab" is actually colored
+	- Owner of a planet/warplanet is determined through color and shown in the .html
+	- Cleaned up source, commented, documented
+
+Known bugs:
+
+	from 1.10:
+	
+	- The owner of a planet with a specific color is always the last warplanet found with the same color, or whos
+ 	  first or second darker color is the same color as the planet
+	
+	- Different houses can have the same color, now way to differentiate.
+
+v1.00 06.06.2011)
+
+	- First version released to others (limited release to selected person(s))
+	
+v0.00 to before v1.00 (before 06.06.2011)
+
+	- Implementing of all basics features etc.
