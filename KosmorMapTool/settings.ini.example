@@ -1,0 +1,11 @@
+warplanets=true
+planets=true
+neutral=false
+fetchinfo=false
+login=YourLoginName
+password=ThisIsMyPassword
+gui=true
+update=false
+date=false
+checkforupdate=off
+csv=true

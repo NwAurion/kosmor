@@ -1,0 +1,44 @@
+Done:
+01. SVG parsen
+02. Planeten und Kriegsplaneten herausfinden
+03. Koordinaten werden richtig berechnet, ob Planet, Kriegsplanet auf Planet oder Kriegsplanet im leeren Raum
+04. Darstellung als Liste wie alphas Tool, mit Koordinaten, Name, Farbe, Schiffen. Links zum anklicken die einen in Kosmor die Position zeigen -> html file
+05. Ergebnis wird in Unterordner "html" im selben Verzeichnis wie die .jar gespeichert
+06. Die Karte wird in Unterordner "map" im selben Verzeichnis gespeichert.
+07. HTML automatisch anhand des Datums (echtes und Kosmordatum) benennen.
+	Beides, .svg und .html werden mit Kosmordatum (117_3507) und echtem Datum (z.b. 29.05.2011) gespeichert
+	Kartendateiname also z.B. "117_3507(29.05.2011) - Map - kosmor.com - .svg"
+	HTML also z.B. "117_3507(29.05.2011) - Planet & WP List - kosmor.com - .svg"
+08. Quellcode ein bisschen aufgeräumt.
+09. Weitgehend dokumentiert und kommentiert
+10. Kriegsplaneten und Planeten trennen, so das man sie später auch getrennt ausgeben kann etc.
+11. "generateSinglePlanet" generiert wirklich nur noch Planeten, "generateSingleWarplanet" generiert die Kriegsplaneten
+12. Der Besitzer Kriegsplaneten werden Anhand der Farbe "richtig" zugewiesen
+	Neutrale Planeten werden ebenfalls erkannt
+	Andere Planeten scheinen zu stimmen, wobei immer der letzte Kriegsplanet mit der passenden Farbe der Besitzer wird.
+	Außerdem ist es noch nicht möglich, das Haus zu erkennen
+	Wenn kein Kriegsplanet der passenden Farbe gefunden wird, wird der Besitzer auf "unknown gesetzt"
+13. !#!#! Automatisch Karte holen, statt selber herunterzuladen !#!#!
+14. "-date" switch, damit man entweder direkt "-date 13.06.11" eingeben kann, 
+	oder nur "-date" und dann eine extra Eingabe für das Datum, damit das Tool das
+	angegebene Datum nimmt statt der Systemzeit.
+15. Feststellen ob Schiffe auf dem Planeten/WP sind. "wpnameships" oder so?
+16. Wenn möglich, feststellen wieviele Schiffe auf einem Planeten/WP sind - vermutlich nicht möglich
+17. Koordinatenunterschied groß genug -> Sprung markieren
+18. Entfernungsanzeige zwischen verschiedenen Planeten/Kriegsplaneten
+
+Offen:
+01. WPs die neu auf der Karte zu sehen sind, als neu markieren
+02. WPs die nicht mehr zu sehen sind extra auflisten und markieren?
+03. Besitzerwechsel von Planeten anzeigen, evtl. sogar lange History?
+--
+04. "Test" Modus, starten mit -test oder so, dann wird auf der Konsole Dateiname der html, der .svg
+	sowie Koordinaten vom Lymgat (8, -1), Maelstroem (8, -1) ausgegeben, die Dateien und Ordner aber nicht erzeugt/umbenannt/verschoben 
+	Evtl. noch ein WP der nicht auf einem Planet ist auch ausgeben, um alle Fälle abzudecken.
+05. Dateiname der .html/svg und evtl. Unterordner flexibel einstellbar, Standard wie derzeit. Wie lösen ohne GUI?
+--
+06. "Komplette" History eines einzelnen WPs.
+06.1. Koordinaten jedes Tages
+06.2. Wenn er nicht gesehen wurde eben "unbekannt" oder so einsetzen
+06.3. Wenn die Distanz von einem Tag auf den anderen >60 Sprung anzeigen und Datum festhalten, nächste Sprungmöglichkeit berechnen
+06.4. Wenn der WP verschwindet und 2 Tage später in mehr als 2*60 LY auftaucht, Sprung anzeigen, evtl. Sprungdatumsbereich festhalten, früheste nächste Möglichkeit festhalten?
