@@ -115,7 +115,7 @@ public class HTTPClientForKosmor {
 		/*
 		 * The first http post is needed to login, so it can not be removed. But
 		 * once a call has been made, the whole response entity has to be
-		 * consumed. The content is mostly irrelevant, except for wether the login actually worked
+		 * consumed. The content is mostly irrelevant, except for whether the login actually worked
 		 */
 		String line;
 		entity = response.getEntity();
