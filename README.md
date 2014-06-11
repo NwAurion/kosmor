@@ -1,7 +1,7 @@
 Kosmor
 ======
 
-A collection of tolols I made for Kosmor, a browser game you can find over at kosmor.de oder kosmor.com.
+A collection of tools I made for Kosmor, a browser game you can find over at kosmor.de oder kosmor.com.
 
 As I dropped development before cleaning up, some stuff is messy or redundant. Basically, there are three tools:
 
