@@ -21,6 +21,6 @@ You can configure the behaviour via parameters on the command line, manually edi
 
 I don't think I added an overview over all parameters, so check out what the Configuration Tool does to the .ini...
 
-The other stuff is mostly either the early stages of the Map Tool, or something I began near the end of development for Kosmor, so likely unfished.
+The other stuff is mostly either the early stages of the Map Tool, or something I began near the end of development for Kosmor, so likely unfinished.
 
 Overall, there is a lot i'd do different now, but they did (and do, just that I don't need them currently) their job.
